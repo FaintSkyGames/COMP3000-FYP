@@ -38,6 +38,10 @@ public class PlayerConfigurationManager : MonoBehaviour
         {
             SceneManager.LoadScene("SampleScene");
         }
+        //else // For testing purposes
+        //{
+        //    SceneManager.LoadScene("Shooter");
+        //}
     }
 
     public void PlayerJoin(PlayerInput playerInput)

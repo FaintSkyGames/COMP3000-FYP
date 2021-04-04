@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -84,9 +85,10 @@ public class PlayerControls : MonoBehaviour
     /// 
     /// </summary>
 
-    public void OnMove(Vector2 ctx)
+    public void OnMove(CallbackContext ctx)
     {
-        moveInput = ctx;
+        Vector2 v2 = ctx.ReadValue<Vector2>();
+        moveInput = v2;
     }
 
     public void OnLook(Vector2 ctx)

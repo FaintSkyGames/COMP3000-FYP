@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -282,6 +282,7 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!4 &819819449
@@ -383,6 +384,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &927320949
 Canvas:
   m_ObjectHideFlags: 0
@@ -434,6 +436,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Configuration Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 4528490494813561196, guid: c2fde0c73906c6f44b43d73b5e11e37d, type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7944817182347177709, guid: c2fde0c73906c6f44b43d73b5e11e37d, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7944817182347177709, guid: c2fde0c73906c6f44b43d73b5e11e37d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 584.86725
@@ -447,6 +457,10 @@ PrefabInstance:
       value: -473.18607
       objectReference: {fileID: 0}
     - target: {fileID: 7944817182347177709, guid: c2fde0c73906c6f44b43d73b5e11e37d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7944817182347177709, guid: c2fde0c73906c6f44b43d73b5e11e37d, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -457,14 +471,6 @@ PrefabInstance:
     - target: {fileID: 7944817182347177709, guid: c2fde0c73906c6f44b43d73b5e11e37d, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7944817182347177709, guid: c2fde0c73906c6f44b43d73b5e11e37d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7944817182347177709, guid: c2fde0c73906c6f44b43d73b5e11e37d, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7944817182347177709, guid: c2fde0c73906c6f44b43d73b5e11e37d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
