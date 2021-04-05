@@ -56,10 +56,46 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6d1a8f7d-7167-458f-98de-c12ad809ad42
+    m_ActionName: Gameplay/Move[/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f409e153-3f0c-43f3-8411-3ca31ca26b64
+    m_ActionName: Gameplay/Look[/XInputControllerWindows/rightStick,/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d2356af4-5c24-4ad3-a855-6fcfe5d46819
+    m_ActionName: Gameplay/Jump[/XInputControllerWindows/buttonSouth,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7928314e-f9d5-42c5-9571-43f2da91f8ce
+    m_ActionName: Gameplay/Sprint[/XInputControllerWindows/leftStickPress,/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 022d540e-305f-4ffa-92b2-3213c8cd9326
+    m_ActionName: Gameplay/Pause[/XInputControllerWindows/start,/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7e610547-6beb-4c52-8d72-e3cf3d791c32
+    m_ActionName: Gameplay/UseTool[/XInputControllerWindows/rightTrigger,/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3324fe70-d720-42af-b270-e99c8e57f94c
+    m_ActionName: UI/Move[/XInputControllerWindows/leftStick,/XInputControllerWindows/rightStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2f420b71-ffea-4198-b4f0-1b1db3677249
+    m_ActionName: UI/Select[/XInputControllerWindows/buttonSouth,/Mouse/leftButton,/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cc14a506-c037-4c67-8eaa-b511fbf8bedb
+    m_ActionName: UI/Pause[/XInputControllerWindows/start,/Keyboard/escape]
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
-  m_DefaultActionMap: bc0645f2-7653-4d2b-aba2-e4e5a424cb69
+  m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &8138699624603563281

@@ -37,7 +37,8 @@ public class InputHandler : MonoBehaviour
     {
         playerConfig = pc;
         this.name = "Player " + pc.PlayerIndex;
-        pc.Input.onActionTriggered += Input_onActionTriggered;
+        playerConfig.Input.onActionTriggered += Input_onActionTriggered;
+
 
         if (playerConfig.PlayerIndex == 0)
         {
