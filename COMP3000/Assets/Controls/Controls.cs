@@ -64,7 +64,15 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""id"": ""7e610547-6beb-4c52-8d72-e3cf3d791c32"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=1)""
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ChangeTool"",
+                    ""type"": ""Button"",
+                    ""id"": ""5aef3254-03f2-4f0b-96ab-ca5b33024cfe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -241,6 +249,50 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""UseTool"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3d31222e-0637-4efa-a177-9fcc1b4bfb54"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ChangeTool"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1bfdfa5f-94d9-49e9-832d-bb12b09026ab"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ChangeTool"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b57bdcf5-0ebb-493a-bfa2-9c60bb732163"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ChangeTool"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d597dfb6-21cc-4476-9055-170db62971f2"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ChangeTool"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -449,6 +501,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Gameplay_Sprint = m_Gameplay.FindAction("Sprint", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         m_Gameplay_UseTool = m_Gameplay.FindAction("UseTool", throwIfNotFound: true);
+        m_Gameplay_ChangeTool = m_Gameplay.FindAction("ChangeTool", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Move = m_UI.FindAction("Move", throwIfNotFound: true);
@@ -509,6 +562,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Sprint;
     private readonly InputAction m_Gameplay_Pause;
     private readonly InputAction m_Gameplay_UseTool;
+    private readonly InputAction m_Gameplay_ChangeTool;
     public struct GameplayActions
     {
         private @Controls m_Wrapper;
@@ -519,6 +573,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Sprint => m_Wrapper.m_Gameplay_Sprint;
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputAction @UseTool => m_Wrapper.m_Gameplay_UseTool;
+        public InputAction @ChangeTool => m_Wrapper.m_Gameplay_ChangeTool;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -546,6 +601,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @UseTool.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUseTool;
                 @UseTool.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUseTool;
                 @UseTool.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUseTool;
+                @ChangeTool.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeTool;
+                @ChangeTool.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeTool;
+                @ChangeTool.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeTool;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -568,6 +626,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @UseTool.started += instance.OnUseTool;
                 @UseTool.performed += instance.OnUseTool;
                 @UseTool.canceled += instance.OnUseTool;
+                @ChangeTool.started += instance.OnChangeTool;
+                @ChangeTool.performed += instance.OnChangeTool;
+                @ChangeTool.canceled += instance.OnChangeTool;
             }
         }
     }
@@ -647,6 +708,7 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnUseTool(InputAction.CallbackContext context);
+        void OnChangeTool(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

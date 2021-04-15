@@ -39,7 +39,6 @@ public class InputHandler : MonoBehaviour
         this.name = "Player " + pc.PlayerIndex;
         playerConfig.Input.onActionTriggered += Input_onActionTriggered;
 
-
         if (playerConfig.PlayerIndex == 0)
         {
             // camera setup
@@ -48,7 +47,7 @@ public class InputHandler : MonoBehaviour
             //this.GetComponentInChildren<Camera>().rect = new Rect(0.0f, 0.0f, 0.5f, 1.0f);
 
             //For testing only
-            this.GetComponentInChildren<Camera>().rect = new Rect(0.0f, 0.0f, 1.0f, 1.0f);
+            this.GetComponentInChildren<Camera>().rect = new Rect(0.0f, 0.0f, 1.0f, 1.0f);           
 
         }
         else if (playerConfig.PlayerIndex == 1)
@@ -57,12 +56,12 @@ public class InputHandler : MonoBehaviour
             this.GetComponentInChildren<Camera>().rect = new Rect(0.5f, 0.0f, 0.5f, 1.0f);
         }
 
+        // Lock cursor to center
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Input_onActionTriggered(CallbackContext ctx)
     {
-        Debug.Log(ctx);
-
         // Gameplay controls for both players
         if (!pauseController.GetStatus())
         {
@@ -115,12 +114,49 @@ public class InputHandler : MonoBehaviour
                 // Shooter fires weapon
                 if (playerConfig.PlayerType == "Shooter")
                 {
-                    shooterControls.OnFire();
+                    // While button held
+                    if (ctx.performed)
+                    {
+                        shooterControls.firing = true;
+                    }
+                    else
+                    {
+                        shooterControls.firing = false;
+                    }
+
+                    //shooterControls.OnFire();
                 }
                 // Puzzle interacts
                 else if (true)
                 {
 
+                }
+            }
+
+            else if (ctx.action.name == controls.Gameplay.ChangeTool.name)
+            {
+                if (playerConfig.PlayerType == "Shooter")
+                {
+                    if (ctx.performed)
+                    {
+                        // pass in name of the button pressed
+                        shooterControls.OnChangeGun(ctx.control.name);
+                    }
+                }
+                else if (playerConfig.PlayerType == "Puzzle")
+                {
+                    
+                }
+            }
+
+            else if (true)
+            {
+                if (playerConfig.PlayerType == "Shooter")
+                {
+                    if (shooterControls.reloading == false)
+                    {
+                        StartCoroutine(shooterControls.OnReload());
+                    }
                 }
             }
 
