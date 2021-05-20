@@ -9,31 +9,31 @@ public class HidePlayerType : MonoBehaviour
     [SerializeField]
     private EventSystem es;
     [SerializeField]
-    private GameObject buttonRed;
+    private GameObject shooterButton;
     [SerializeField]
-    private GameObject redText;
+    private GameObject shooterText;
     [SerializeField]
-    private GameObject buttonBlue;
+    private GameObject puzzleButton;
     [SerializeField]
-    private GameObject blueText;
+    private GameObject puzzleText;
 
     // Update is called once per frame
     void Update()
     {
         //Debug.Log(es.currentSelectedGameObject.name);
-        if (es.currentSelectedGameObject.name == "Red")
+        if (es.currentSelectedGameObject.name == "Shooter")
         {
-            buttonRed.GetComponent<Image>().enabled = true;
-            redText.GetComponent<Text>().enabled = true;
-            buttonBlue.GetComponent<Image>().enabled = false;
-            blueText.GetComponent<Text>().enabled = false;
+            shooterButton.GetComponent<Image>().enabled = true;
+            shooterText.GetComponent<Text>().enabled = true;
+            puzzleButton.GetComponent<Image>().enabled = false;
+            puzzleText.GetComponent<Text>().enabled = false;
         }
-        else if (es.currentSelectedGameObject.name == "Blue")
+        else if (es.currentSelectedGameObject.name == "Puzzle")
         {
-            buttonBlue.GetComponent<Image>().enabled = true;
-            blueText.GetComponent<Text>().enabled = true;
-            buttonRed.GetComponent<Image>().enabled = false;
-            redText.GetComponent<Text>().enabled = false;
+            puzzleButton.GetComponent<Image>().enabled = true;
+            puzzleText.GetComponent<Text>().enabled = true;
+            shooterButton.GetComponent<Image>().enabled = false;
+            shooterText.GetComponent<Text>().enabled = false;
         }
     }
 }
