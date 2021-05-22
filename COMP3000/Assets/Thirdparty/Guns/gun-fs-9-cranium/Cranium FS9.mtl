@@ -1,0 +1,22 @@
+newmtl box
+Ns 100.000
+d 1.00000
+illum 2
+Kd 1.00000 1.00000 1.00000
+Ka 0.00000 0.00000 0.00000
+Ks 1.00000 1.00000 1.00000
+Ke 0.00000e+0 0.00000e+0 0.00000e+0
+map_Kd Cranium FS9_box_color.tga
+map_Ks Cranium FS9_box_rough.tga
+map_bump Cranium FS9_box_nmap.tga
+newmtl furniture
+Ns 100.000
+d 1.00000
+illum 2
+Kd 1.00000 1.00000 1.00000
+Ka 0.00000 0.00000 0.00000
+Ks 1.00000 1.00000 1.00000
+Ke 0.00000e+0 0.00000e+0 0.00000e+0
+map_Kd Cranium FS9_furniture_color.tga
+map_Ks Cranium FS9_furniture_rough.tga
+map_bump Cranium FS9_furniture_nmap.tga
