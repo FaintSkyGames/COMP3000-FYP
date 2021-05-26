@@ -1,8 +1,13 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject model;
+    private Animator anim;
+
     [SerializeField]
     public NavMeshAgent agent;
 
@@ -19,21 +24,32 @@ public class EnemyMovement : MonoBehaviour
     {
         destination = patrolPath[nextPathPoint].position;
         agent.SetDestination(destination);
+
+        anim = model.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerToFollow != null)
+        float dist = agent.remainingDistance;
+        
+        if (agent.remainingDistance == 0 && !agent.isStopped)
         {
-            destination = playerToFollow.transform.position;
-            agent.SetDestination(destination);
-        }
+            Debug.Log("Reached end");
 
-        // If reached desired point, go to next point
-        else if (this.transform.position.x == destination.x && this.transform.position.z == destination.z)
-        {
-            nextPathPoint += 1;
+            agent.updatePosition = false;
+            agent.updateRotation = false;
+
+            //agent.isStopped = true;
+            //anim.SetBool("TurnRight", true);
+
+            if (playerToFollow != null)
+            {
+                destination = playerToFollow.transform.position;
+            }
+            else // If reached desired point, go to next point
+            {
+                nextPathPoint += 1;
 
                 // Prevent going to a point that doesn't exsist
                 if (nextPathPoint == patrolPath.Length)
@@ -42,9 +58,23 @@ public class EnemyMovement : MonoBehaviour
                 }
 
                 destination = patrolPath[nextPathPoint].position;
-                agent.SetDestination(destination);
-        }        
+
+                //Turn();
+            }
+
+            //agent.isStopped = true;
+        }
+
         
+        
+            Turn();
+        
+
+        agent.updatePosition = true;
+        agent.updateRotation = true;
+
+        agent.SetDestination(destination);
+
     }
 
     // If player within detection range, follow instead
@@ -56,6 +86,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 playerToFollow = other.gameObject;
                 destination = playerToFollow.transform.position;
+                Turn();
                 agent.SetDestination(destination);
             }
         }
@@ -68,7 +99,21 @@ public class EnemyMovement : MonoBehaviour
         {
             playerToFollow = null;
             destination = patrolPath[nextPathPoint].position;
+            Turn();
             agent.SetDestination(destination);
         }
     }
+    
+    private IEnumerator Turn()
+    {
+        //this.transform.LookAt(destination, Vector3.up);
+
+
+        Vector3 lookrotation = agent.steeringTarget - transform.position;
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookrotation), 30 * Time.deltaTime);
+
+        //agent.isStopped = false;
+        return null;
+    }
+
 }
