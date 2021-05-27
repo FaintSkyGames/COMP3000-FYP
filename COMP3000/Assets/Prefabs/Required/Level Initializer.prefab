@@ -80,6 +80,8 @@ MonoBehaviour:
   - {fileID: 7529435941016362345}
   shooterPlayerPrefab: {fileID: 3901072656211098506, guid: 66c9bf26204febc4c9906475834493bf, type: 3}
   puzzlePlayerPrefab: {fileID: 2925339868643702527, guid: b9650dce970099642a7e2a9aa78cd8dc, type: 3}
+  playerHUDPrefab: {fileID: 3451222992842039005, guid: bbdffc80618c4ce4489d02f88f0bf095, type: 3}
+  puzzleInventoryPrefab: {fileID: 6835969795995592815, guid: cb5526646684a8d4cbf41e438089f4d7, type: 3}
 --- !u!1 &7529435941016362134
 GameObject:
   m_ObjectHideFlags: 0
