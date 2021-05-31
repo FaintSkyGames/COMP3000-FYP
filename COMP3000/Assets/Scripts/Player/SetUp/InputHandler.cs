@@ -14,7 +14,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField]
     private ShooterControls shooterControls;
     [SerializeField]
-    private PlayerControls puzzleControls;
+    private PuzzleControls puzzleControls;
 
     // control system
     private Controls controls;
@@ -31,6 +31,8 @@ public class InputHandler : MonoBehaviour
 
         pauseController = GameObject.Find("UI").GetComponent<PauseControl>();
         //playerInput = GetComponent<PlayerInput>();
+
+        puzzleControls.playerConfig = playerConfig;
     }
 
     public void InitializePlayer(PlayerConfiguration pc)
@@ -145,7 +147,10 @@ public class InputHandler : MonoBehaviour
                 }
                 else if (playerConfig.PlayerType == "Puzzle")
                 {
-                    
+                    if (ctx.performed)
+                    {
+                        puzzleControls.OnChangeTool(ctx.control.name);
+                    }
                 }
             }
 

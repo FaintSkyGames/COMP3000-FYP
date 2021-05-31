@@ -5163,7 +5163,9 @@ PrefabInstance:
       propertyPath: near clip plane
       value: 0.01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -8524495952289261725, guid: b9650dce970099642a7e2a9aa78cd8dc, type: 3}
+    - {fileID: 7294209915954235933, guid: b9650dce970099642a7e2a9aa78cd8dc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b9650dce970099642a7e2a9aa78cd8dc, type: 3}
 --- !u!1 &8586913982629225592 stripped
 GameObject:

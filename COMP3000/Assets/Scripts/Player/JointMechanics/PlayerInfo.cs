@@ -6,13 +6,14 @@ public class PlayerInfo : MonoBehaviour
 {
     // Health
 
+    [SerializeField]
     public Inventory inventory;
     private GameObject inventoryUI;
 
 
     public PlayerInfo()
     {
-        inventory = new Inventory();
+        //inventory = new Inventory();
     }
 
     // Update is called once per frame

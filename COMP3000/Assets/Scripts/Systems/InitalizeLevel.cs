@@ -40,10 +40,12 @@ public class InitalizeLevel : MonoBehaviour
             {
                 player = Instantiate(puzzlePlayerPrefab, playerSpawns[i].position, playerSpawns[i].rotation, gameObject.transform);
 
+                //playerConfigs[i].Info.inventory = player.GetComponent<Inventory>();
+
                 if (rootMenu != null)
                 {
-                    var menu = Instantiate(PuzzleHUDPrefab, rootMenu.transform);
-                    menu.transform.Find("Inventory").GetComponent<PuzzleInventoryUI>().BindToPlayer(playerConfigs[i]);
+                    var menu = Instantiate(PuzzleHUDPrefab, rootMenu.transform);                    
+                    menu.transform.Find("Inventory").GetComponent<PuzzleInventoryUI>().BindToPlayer(player);
                 }                
             }
             player.GetComponent<InputHandler>().InitializePlayer(playerConfigs[i]);            
